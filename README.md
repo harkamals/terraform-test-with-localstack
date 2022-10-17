@@ -73,3 +73,75 @@ $ localstack status services
 └──────────────────────────┴─────────────┘
 ```
 
+Next update providers.tf with localstack endpoints (refer providers.tf)
+```terraform
+$ terraform plan
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following
+symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_s3_bucket.test-bucket will be created
+  + resource "aws_s3_bucket" "test-bucket" {
+      + acceleration_status         = (known after apply)
+      + acl                         = (known after apply)
+      + arn                         = (known after apply)
+      + bucket                      = "my-bucket"
+      + bucket_domain_name          = (known after apply)
+      + bucket_regional_domain_name = (known after apply)
+      + force_destroy               = false
+      + hosted_zone_id              = (known after apply)
+      + id                          = (known after apply)
+      + object_lock_enabled         = (known after apply)
+      + policy                      = (known after apply)
+      + region                      = (known after apply)
+      + request_payer               = (known after apply)
+      + tags_all                    = (known after apply)
+      + website_domain              = (known after apply)
+      + website_endpoint            = (known after apply)
+
+      ... <truncated>
+      
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+```
+Apply changes
+```terraform
+$ terraform apply --auto-approve
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_s3_bucket.test-bucket will be created
+  + resource "aws_s3_bucket" "test-bucket" {
+      + acceleration_status         = (known after apply)
+      + acl                         = (known after apply)
+      + arn                         = (known after apply)
+      + bucket                      = "my-bucket"
+      + bucket_domain_name          = (known after apply)
+      + bucket_regional_domain_name = (known after apply)
+      + force_destroy               = false
+      + hosted_zone_id              = (known after apply)
+      + id                          = (known after apply)
+      + object_lock_enabled         = (known after apply)
+      + policy                      = (known after apply)
+      + region                      = (known after apply)
+      + request_payer               = (known after apply)
+      + tags_all                    = (known after apply)
+      + website_domain              = (known after apply)
+      + website_endpoint            = (known after apply)
+        ...
+        <truncated>
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+aws_s3_bucket.test-bucket: Creating...
+aws_s3_bucket.test-bucket: Creation complete after 1s [id=my-bucket]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+```

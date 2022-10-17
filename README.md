@@ -72,8 +72,30 @@ $ localstack status services
 │ transcribe               │ ✔ available │
 └──────────────────────────┴─────────────┘
 ```
+Configure terraform-provider-aws with mock endpoints from localstack
 
-Next update providers.tf with localstack endpoints (refer providers.tf)
+```terraform
+provider "aws" {
+  access_key = "mock-it"
+  secret_key = "mock-it"
+  region     = "eu-west-1"
+
+  skip_credentials_validation = true
+  skip_metadata_api_check     = true
+  skip_requesting_account_id  = true
+  s3_use_path_style           = true
+
+  endpoints {
+    iam            = "http://localhost:4566"
+    rds            = "http://localhost:4566"
+    redshift       = "http://localhost:4566"
+    route53        = "http://localhost:4566"
+    s3             = "http://localhost:4566"
+    }
+}
+```
+You are all set to run terraform apply commands as if you would run it against aws!
+
 ```terraform
 $ terraform plan
 
@@ -135,8 +157,8 @@ Terraform will perform the following actions:
       + tags_all                    = (known after apply)
       + website_domain              = (known after apply)
       + website_endpoint            = (known after apply)
-        ...
-        <truncated>
+        
+        ... <truncated>
     }
 
 Plan: 1 to add, 0 to change, 0 to destroy.

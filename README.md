@@ -97,6 +97,10 @@ provider "aws" {
 You are all set to run terraform apply commands as if you would run it against aws!
 
 ```terraform
+resource "aws_s3_bucket" "test-bucket" {
+  bucket = "my-bucket"
+}
+
 $ terraform plan
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following

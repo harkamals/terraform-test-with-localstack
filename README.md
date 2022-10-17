@@ -4,6 +4,10 @@ Objectives
 - Testing terraform code with built-in subcommand `terraform test` (experimental feature with v0.15 release)
 - Use `localstack` for integration testing
 
+Use cases
+- Cost effective regression testing
+- Offline development, no AWS account access required
+
 Requirements
 - Docker for Mac
 - Terraform v1.3.2

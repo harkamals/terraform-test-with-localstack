@@ -1,4 +1,4 @@
-# terraform-test-with-localstack
+# Terraform test with localstack
 
 Objectives
 - Testing terraform code with built-in subcommand `terraform test` (experimental feature with v0.15 release)

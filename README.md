@@ -175,8 +175,7 @@ aws_s3_bucket.test-bucket: Creation complete after 1s [id=my-bucket]
 
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
-Integration testing
-Read more: https://www.terraform.io/language/modules/testing-experiment
+Integration testing (read more: https://www.terraform.io/language/modules/testing-experiment)
 
 ```terraform
 $ terraform test

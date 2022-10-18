@@ -175,3 +175,23 @@ aws_s3_bucket.test-bucket: Creation complete after 1s [id=my-bucket]
 
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
+Integration testing
+
+```terraform
+$ terraform test
+ Warning: The "terraform test" command is experimental
+│ 
+│ We'd like to invite adventurous module authors to write integration tests for their modules using this command, but all of the behaviors of this command are
+│ currently experimental and may change based on feedback.
+│ 
+│ For more information on the testing experiment, including ongoing research goals and avenues for feedback, see:
+│     https://www.terraform.io/docs/language/modules/testing-experiment.html
+╵
+─── Failed: example.bucket.name_equal (name condition) ────────────────────────────────────────────────────────────────────────────────────────────────────────────
+wrong value
+    got:  "happy-3"
+    want: "happy-x"
+
+─── Failed: example.bucket.object_local_enabled (check if object lock is enabled) ─────────────────────────────────────────────────────────────────────────────────
+condition failed
+```
